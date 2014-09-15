@@ -49,7 +49,7 @@ class Die //models one single dice cube
 {
   int DX, DY, DieNum,DieSize;
  String Dir;
- int bar;
+ int bar, lap;
   
   Die(int x, int y) //constructor
   {
@@ -107,8 +107,12 @@ class Die //models one single dice cube
       ellipse(DX+60, DY+60, DieSize, DieSize);//Right Bottom dot 
       
     }
+    if(lap>2){
+      fill(0);
+      rect(DX, DY, 80, 80);
+    }
   }
-   void meter( String Dir)
+   void meter(String Dir)
   {
     bar = bar + DieNum*5;
     if (Dir=="LEFT")
@@ -135,7 +139,7 @@ class Die //models one single dice cube
     if(bar > 200)
     {
       bar = 0;
-    }
-
+      lap++;
+    } 
   }
 }   
